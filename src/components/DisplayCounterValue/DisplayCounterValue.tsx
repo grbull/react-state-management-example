@@ -1,9 +1,8 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { CounterContext } from '../../contexts/CounterContext';
 
-interface Props {
-  count: number;
-}
+export const DisplayCounterValue = () => {
+  const { count } = useContext(CounterContext);
 
-export const DisplayCounterValue = ({ count }: Props) => {
   return <div>Current count is: {count}</div>;
 };

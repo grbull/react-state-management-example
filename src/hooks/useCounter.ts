@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-interface UseCounterResult {
+export interface UseCounterResult {
   count: number;
   handleIncrement: () => void;
   handleDecrement: () => void;

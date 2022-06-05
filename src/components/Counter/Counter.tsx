@@ -1,12 +1,9 @@
-import React, { useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
+import { CounterContext } from '../../contexts/CounterContext';
 
-interface Props {
-  count: number;
-  onIncrement: () => void;
-  onDecrement: () => void;
-}
+export const Counter = () => {
+  const { count, handleIncrement, handleDecrement } = useContext(CounterContext);
 
-export const Counter = ({ count, onIncrement, onDecrement }: Props) => {
   useEffect(() => {
     console.log('Counter component has loaded.');
   }, []);
@@ -14,11 +11,11 @@ export const Counter = ({ count, onIncrement, onDecrement }: Props) => {
   return (
     <>
       <h3>Counter</h3>
-      <button onClick={onIncrement} title="Increment" type="button">
+      <button onClick={handleIncrement} title="Increment" type="button">
         +
       </button>
       <span style={{ margin: '0px 8px' }}>{count}</span>
-      <button onClick={onDecrement} title="Decrement" type="button">
+      <button onClick={handleDecrement} title="Decrement" type="button">
         -
       </button>
     </>
