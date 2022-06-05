@@ -11,7 +11,6 @@ export const Counter = () => {
     setCount(count - 1);
   };
 
-  // Step 2: Introduce useEffect hook
   useEffect(() => {
     console.log('Counter component has loaded.');
   }, []);
