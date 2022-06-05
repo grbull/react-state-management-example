@@ -1,22 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { Counter } from '../../components/Counter/Counter';
 import { DisplayCounterValue } from '../../components/DisplayCounterValue/DisplayCounterValue';
+import { useCounter } from '../../hooks/useCounter';
 
 export const HomePage = () => {
-  // Step 4: Lift the state to a parent component and use callback functions
-  const [count, setCount] = useState(0);
-
-  const handleIncrement = () => {
-    setCount(count + 1);
-  };
-
-  const handleDecrement = () => {
-    setCount(count - 1);
-  };
-
-  useEffect(() => {
-    console.log('Count has changed to ' + count + '.');
-  }, [count]);
+  // Step 5: Abstract our state logic into a custom hook
+  const { count, handleDecrement, handleIncrement } = useCounter();
 
   return (
     <div>
