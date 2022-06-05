@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 export const Counter = () => {
-  // Step 1: Introduce useState hook
   const [count, setCount] = useState(0);
 
   const handleIncrement = () => {
@@ -11,6 +10,15 @@ export const Counter = () => {
   const handleDecrement = () => {
     setCount(count - 1);
   };
+
+  // Step 2: Introduce useEffect hook
+  useEffect(() => {
+    console.log('Counter component has loaded.');
+  }, []);
+
+  useEffect(() => {
+    console.log('Count has changed to ' + count + '.');
+  }, [count]);
 
   return (
     <>
