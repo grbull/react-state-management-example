@@ -1,32 +1,24 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 
-export const Counter = () => {
-  const [count, setCount] = useState(0);
+interface Props {
+  count: number;
+  onIncrement: () => void;
+  onDecrement: () => void;
+}
 
-  const handleIncrement = () => {
-    setCount(count + 1);
-  };
-
-  const handleDecrement = () => {
-    setCount(count - 1);
-  };
-
+export const Counter = ({ count, onIncrement, onDecrement }: Props) => {
   useEffect(() => {
     console.log('Counter component has loaded.');
   }, []);
 
-  useEffect(() => {
-    console.log('Count has changed to ' + count + '.');
-  }, [count]);
-
   return (
     <>
       <h3>Counter</h3>
-      <button onClick={handleIncrement} title="Increment" type="button">
+      <button onClick={onIncrement} title="Increment" type="button">
         +
       </button>
       <span style={{ margin: '0px 8px' }}>{count}</span>
-      <button onClick={handleDecrement} title="Decrement" type="button">
+      <button onClick={onDecrement} title="Decrement" type="button">
         -
       </button>
     </>
